@@ -38,8 +38,10 @@ public class RegistrationTest extends TestBase {
         app.getUser().fillLoginRegistrationForm(email, password);
         app.getUser().submitRegistration();
         app.getUser().pause(3);
-        Assert.assertFalse(app.getUser().isElementPresent(By.xpath("//button")));
+//        Assert.assertFalse(app.getUser().isElementPresent(By.xpath("//button")));
 
+        Assert.assertTrue(app.getUser().isErrorMessageInFormat());
+        Assert.assertTrue(app.getUser().isAlertPresent());
     }
 
 
