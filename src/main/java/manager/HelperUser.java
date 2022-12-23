@@ -1,5 +1,6 @@
 package manager;
 
+import models.User;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,6 +24,14 @@ public class HelperUser extends HelperBase{
         return isElementPresent(By.xpath("//button"));
     }
 
+
+    public void login(User user){
+        openLoginRegistrationForm();
+        fillLoginRegistrationForm(user);
+        submitLogin();
+        pause(1000);
+    }
+
     public void logout(){
         click(By.xpath("//button"));
     }
@@ -34,6 +43,10 @@ public class HelperUser extends HelperBase{
     public void fillLoginRegistrationForm(String email, String password){
         type(By.xpath("//input[1]"), email);
         type(By.xpath("//input[2]"), password);
+    }
+    public void fillLoginRegistrationForm(User user){
+        type(By.xpath("//input[1]"), user.getEmail());
+        type(By.xpath("//input[2]"), user.getPassword());
     }
 
     public boolean isAlertPresent() {

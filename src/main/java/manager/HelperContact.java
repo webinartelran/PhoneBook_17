@@ -3,11 +3,14 @@ package manager;
 import models.Contact;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class HelperContact extends HelperBase {
     public HelperContact(WebDriver wd) {
         super(wd);
     }
+    Logger logger = LoggerFactory.getLogger(HelperContact.class);
 
     public void openContactForm(){
         click(By.xpath("//a[@href='/add']"));
@@ -30,5 +33,23 @@ public class HelperContact extends HelperBase {
 
     public void isContactCreated(){
 
+    }
+
+    public int removeOneContact() {
+        int countBefore = countOfContacts();
+        logger.info("Number of contacts before is " + countBefore);
+        String phone = wd.findElement(By.cssSelector(".contact-item_card__2SOIM h3")).getText();
+        logger.info("The deleted number is " + phone);
+        click(By.cssSelector(".contact-item_card__2SOIM"));
+        click(By.xpath("//button[.='Remove']"));
+        pause(3000);
+        int countAfter = countOfContacts();
+        logger.info("Number of contacts after is " + countAfter);
+
+        return countAfter - countBefore;
+    }
+
+    private int countOfContacts() {
+        return wd.findElements(By.cssSelector(".contact-item_card__2SOIM")).size();
     }
 }
