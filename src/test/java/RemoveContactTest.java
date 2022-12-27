@@ -18,7 +18,7 @@ public class RemoveContactTest extends TestBase{
 
     @Test
     public void removeOneContactPositive(){
-        
+
         int result = app.getContact().removeOneContact();
         Assert.assertEquals(result, -1);
 
