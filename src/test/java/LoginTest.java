@@ -11,12 +11,12 @@ public class LoginTest extends TestBase{
 
     WebDriver wd;
 
-    @BeforeMethod
-    public void init(){
-        wd = new ChromeDriver();
-        wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");
-
-    }
+//    @BeforeMethod
+//    public void init(){
+//        wd = new ChromeDriver();
+//        wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");
+//
+//    }
 
     @Test
     public void loginPositiveTest(){

@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class AddNewContact extends TestBase{
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void preCondition(){
         if(app.getUser().isLogged()){
             app.getUser().pause(3);
@@ -20,7 +20,7 @@ public class AddNewContact extends TestBase{
             app.getUser().pause(3);
         }
     }
-    @Test(invocationCount = 5)
+    @Test(invocationCount = 5, groups = {"positivegroup", "smokegroup"})
     public void addNewContactPositiveTest() {
         int i = (int) (System.currentTimeMillis() / 1000) % 3600;
         Contact contact = Contact.builder()
