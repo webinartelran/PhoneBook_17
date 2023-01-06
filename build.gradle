@@ -35,7 +35,7 @@ task tests(type:Test){
         }
 
         def suite = System.getProperty('suite','')
-        if(suite.equals('addtests')){
+        if(suite.equals('add_tests')){
             suites 'src/test/resources/add.xml'
         } else if(suite.equals('regtests')){
             suites 'src/test/resources/reg.xml'

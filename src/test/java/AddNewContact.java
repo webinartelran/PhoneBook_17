@@ -11,8 +11,6 @@ public class AddNewContact extends TestBase{
     public void preCondition(){
         if(app.getUser().isLogged()){
             app.getUser().pause(3);
-
-
         } else {
             app.getUser().openLoginRegistrationForm();
             app.getUser().fillLoginRegistrationForm("abc@def.com", "$Abcdef12345");

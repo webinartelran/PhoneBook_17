@@ -21,6 +21,7 @@ public class LoginTest extends TestBase{
     @Test
     public void loginPositiveTest(){
         // open login/reg form
+        app.getUser().pause(3000);
         WebElement loginBtn = wd.findElement(By.xpath("//a[text()='LOGIN']"));
         loginBtn.click();
         // fill login/reg form
